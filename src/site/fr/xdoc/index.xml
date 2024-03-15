@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <title>Library Identitybusiness V1 V2</title>
+    </properties>
+    <body>
+        <section name="Librairie Identity Business V1 V2">
+            <subsection name="Introduction">
+                <p>
+                Cette librairie expose des classes et interfaces des versions v1 et v2 de Identitystore, à partager entre les plugins serveur et client.
+                </p>
+            </subsection>
+            <subsection name="Usage">
+                <p>
+               A déclarer en tant que dépendance.
+                </p>
+            </subsection>
+            <subsection name="Configuration">
+                <p>
+                sans objet.
+                </p>
+            </subsection>
+        </section>
+    </body>
+</document>
