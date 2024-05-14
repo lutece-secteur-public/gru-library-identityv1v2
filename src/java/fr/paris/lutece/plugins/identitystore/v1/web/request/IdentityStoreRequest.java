@@ -34,7 +34,6 @@
 package fr.paris.lutece.plugins.identitystore.v1.web.request;
 
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
-import fr.paris.lutece.portal.service.util.AppException;
 
 /**
  * This class represents a request for IdentityStoreRestServive
@@ -45,9 +44,6 @@ public abstract class IdentityStoreRequest
 
     /**
      * Valid the request according to parameter
-     * 
-     * @throws AppException
-     *             if request not valid
      */
     protected abstract void validRequest( );
 
@@ -55,8 +51,6 @@ public abstract class IdentityStoreRequest
      * Specific action for the request
      * 
      * @return html/json string response
-     * @throws AppException
-     *             in case of request fail
      * @throws IdentityStoreException
      */
     protected abstract String doSpecificRequest( ) throws IdentityStoreException;
@@ -65,8 +59,6 @@ public abstract class IdentityStoreRequest
      * Do the request, call the inner validRequest and doSpecificRequest
      * 
      * @return html/json string response
-     * @throws AppException
-     *             in case of failure
      */
     public String doRequest( ) throws IdentityStoreException
     {

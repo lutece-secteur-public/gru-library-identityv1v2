@@ -41,12 +41,16 @@ import fr.paris.lutece.plugins.identitystore.service.IdentityStoreService;
 import fr.paris.lutece.plugins.identitystore.v1.web.request.IdentityStoreGetRequest;
 import fr.paris.lutece.plugins.identitystore.v1.web.rs.dto.ResponseDto;
 import fr.paris.lutece.plugins.identitystore.v2.web.rs.util.Constants;
-import fr.paris.lutece.plugins.identitystore.web.exception.IdentityNotFoundException;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
+import fr.paris.lutece.plugins.identitystore.web.exception.ResourceNotFoundException;
 import fr.paris.lutece.plugins.rest.service.RestConstants;
 import fr.paris.lutece.portal.service.util.AppLogService;
 
-import javax.ws.rs.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -122,7 +126,7 @@ public final class IdentityStoreRestService
 
         AppLogService.debug( "IdentityStoreRestService getErrorResponse : " + e.getMessage( ) );
 
-        if ( e instanceof IdentityNotFoundException )
+        if ( e instanceof ResourceNotFoundException )
         {
             strMessage = ERROR_NO_IDENTITY_FOUND;
             status = Response.Status.NOT_FOUND;

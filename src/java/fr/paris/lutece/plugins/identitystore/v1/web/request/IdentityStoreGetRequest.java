@@ -35,10 +35,11 @@ package fr.paris.lutece.plugins.identitystore.v1.web.request;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import fr.paris.lutece.plugins.identitystore.business.application.ClientApplicationHome;
 import fr.paris.lutece.plugins.identitystore.service.identity.IdentityService;
 import fr.paris.lutece.plugins.identitystore.v1.web.rs.DtoConverter;
 import fr.paris.lutece.plugins.identitystore.v1.web.rs.IdentityRequestValidator;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.IdentitySearchResponse;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IdentityDto;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
 
 /**
@@ -93,17 +94,15 @@ public class IdentityStoreGetRequest extends IdentityStoreRequest
     @Override
     protected String doSpecificRequest( ) throws IdentityStoreException
     {
-        final IdentitySearchResponse response = new IdentitySearchResponse( );
-
-        IdentityService.instance( ).search( _strCustomerId, _strConnectionId, response, _strClientAppCode, null );
-
-        if ( response.getIdentities( ) != null && !response.getIdentities( ).isEmpty( ) )
+        final IdentityDto result = IdentityService.instance( ).search( _strCustomerId, _strConnectionId,
+                ClientApplicationHome.selectActiveServiceContract( _strClientAppCode ).stream( ).findFirst( ).orElse( null ), null );
+        if ( result != null )
         {
             try
             {
-                return _objectMapper.writeValueAsString( DtoConverter.convert( response.getIdentities( ).get( 0 ) ) );
+                return _objectMapper.writeValueAsString( DtoConverter.convert( result ) );
             }
-            catch( JsonProcessingException e )
+            catch( final JsonProcessingException e )
             {
                 throw new IdentityStoreException( ERROR_JSON_MAPPING, e );
             }
