@@ -93,8 +93,7 @@
 
     <scm>
         <connection>scm:git:https://github.com/lutece-secteur-public/gru-library-identityv1v2.git</connection>
-        <developerConnection>scm:git:https://github.com/lutece-secteur-public/gru-library-identityv1v2.git
-        </developerConnection>
+        <developerConnection>scm:git:https://github.com/lutece-secteur-public/gru-library-identityv1v2.git</developerConnection>
         <url>https://github.com/lutece-secteur-public/gru-library-identityv1v2.git</url>
         <tag>HEAD</tag>
     </scm>
