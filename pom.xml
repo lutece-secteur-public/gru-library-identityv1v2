@@ -10,13 +10,13 @@
     <groupId>fr.paris.lutece.plugins</groupId>
     <artifactId>library-identitystore-v1-v2</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>Lutece identity v1 v2 library</name>
 
     <properties>
         <componentName>GRU Library Identitystore v1 v2</componentName>
         <jiraProjectName>LIBIDSV1V2</jiraProjectName>
-        <jiraComponentId></jiraComponentId>
+        <jiraComponentId />
         <swagger-jaxrs.version>1.6.11</swagger-jaxrs.version>
     </properties>
 
@@ -95,7 +95,7 @@
         <connection>scm:git:https://github.com/lutece-secteur-public/gru-library-identityv1v2.git</connection>
         <developerConnection>scm:git:https://github.com/lutece-secteur-public/gru-library-identityv1v2.git</developerConnection>
         <url>https://github.com/lutece-secteur-public/gru-library-identityv1v2.git</url>
-        <tag>HEAD</tag>
+        <tag>library-identitystore-v1-v2-1.0.0</tag>
     </scm>
 
 </project>
