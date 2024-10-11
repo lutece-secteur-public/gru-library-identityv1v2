@@ -35,7 +35,7 @@ package fr.paris.lutece.plugins.identitystore.v1.web.request;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import fr.paris.lutece.plugins.identitystore.service.identity.IdentityService;
+import fr.paris.lutece.plugins.identitystore.old.common.IdentityService;
 import fr.paris.lutece.plugins.identitystore.v1.web.rs.DtoConverter;
 import fr.paris.lutece.plugins.identitystore.v1.web.rs.IdentityRequestValidator;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.IdentitySearchResponse;

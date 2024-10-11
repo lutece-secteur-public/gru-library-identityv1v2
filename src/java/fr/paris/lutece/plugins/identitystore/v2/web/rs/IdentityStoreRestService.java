@@ -37,11 +37,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import fr.paris.lutece.plugins.identitystore.service.IdentityStoreService;
+import fr.paris.lutece.plugins.identitystore.old.common.IdentityNotFoundException;
+import fr.paris.lutece.plugins.identitystore.old.common.IdentityStoreService;
 import fr.paris.lutece.plugins.identitystore.v2.web.request.IdentityStoreGetRequest;
 import fr.paris.lutece.plugins.identitystore.v2.web.rs.dto.ResponseDto;
 import fr.paris.lutece.plugins.identitystore.v2.web.rs.util.Constants;
-import fr.paris.lutece.plugins.identitystore.web.exception.IdentityNotFoundException;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
 import fr.paris.lutece.plugins.rest.service.RestConstants;
 import fr.paris.lutece.portal.service.util.AppLogService;
@@ -122,7 +122,7 @@ public final class IdentityStoreRestService
 
         AppLogService.debug( "IdentityStoreRestService getErrorResponse : " + exception.getMessage( ) );
 
-        if ( exception instanceof IdentityNotFoundException )
+        if ( exception instanceof IdentityNotFoundException)
         {
             strMessage = ERROR_NO_IDENTITY_FOUND;
             status = Response.Status.NOT_FOUND;
