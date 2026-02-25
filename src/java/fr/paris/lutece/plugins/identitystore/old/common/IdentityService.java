@@ -93,8 +93,8 @@ public class IdentityService {
         {
             throw new ServiceContractNotFoundException( "No active service contract could be found for clientCode = " + clientCode );
         }
-        final IdentityDto identityDto = StringUtils.isNotBlank( customerId ) ? _identityDtoCache.getByCustomerId( customerId, serviceContract )
-                : _identityDtoCache.getByConnectionId( connectionId, serviceContract );
+        final IdentityDto identityDto = StringUtils.isNotBlank( customerId ) ? _identityDtoCache.getMasterIdentityByCustomerId( customerId, serviceContract )
+                : _identityDtoCache.getMasterIdentityByConnectionId( connectionId, serviceContract );
         if ( identityDto == null )
         {
             // #345 : If the identity doesn't exist, make an extra search in the history (only for CUID search).
